@@ -17,7 +17,7 @@ public class ApiController {
 	@CrossOrigin
 	@RequestMapping("/rest")
 	public List<String> getData() {
-		List<String> cars = new ArrayList(Arrays.asList("Volvo", "BMW", "Ford", "Mazda"));
+		List<String> cars = new ArrayList<String>(Arrays.asList("Volvo", "BMW", "Ford", "Mazda"));
 		return cars;
 	}
 	

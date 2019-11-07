@@ -2,50 +2,46 @@ package com.example.demo.site;
 
 import java.util.Optional;
 
+import javax.persistence.Id;
+
 import org.springframework.stereotype.Service;
 
 @Service
 public class CarService implements CarRepository{
 	private CarRepository carRepository;
-	
-	public void addCar(String carName) {
-		Car newCar = new Car();
-		newCar.setCarName(carName);
-		this.carRepository.save(newCar);
-	}
 
 	@Override
-	public Object save(Object entity) {
+	public <S extends Car> S save(S entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Iterable saveAll(Iterable entities) {
+	public <S extends Car> Iterable<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Optional findById(Object id) {
+	public Optional<Car> findById(Id id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean existsById(Object id) {
+	public boolean existsById(Id id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Iterable findAll() {
+	public Iterable<Car> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Iterable findAllById(Iterable ids) {
+	public Iterable<Car> findAllById(Iterable<Id> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -57,19 +53,19 @@ public class CarService implements CarRepository{
 	}
 
 	@Override
-	public void deleteById(Object id) {
+	public void deleteById(Id id) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete(Object entity) {
+	public void delete(Car entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteAll(Iterable entities) {
+	public void deleteAll(Iterable<? extends Car> entities) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -79,4 +75,11 @@ public class CarService implements CarRepository{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void addCar(String carName) {
+		Car newCar = new Car();
+		newCar.setCarName(carName);
+		this.carRepository.save(newCar);
+	}
+
 }
